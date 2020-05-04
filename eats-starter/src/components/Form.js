@@ -4,7 +4,7 @@ import axios from "axios";
 import styled from 'styled-components';
 
 export default function Form() {
-    // can declare initialState once and use as initial state for form, for errors, and reset form
+    
     const initialFormState = {
       name: "",
       email: "",
@@ -13,22 +13,22 @@ export default function Form() {
       terms: ""
     };
   
-    // temporary state used to set state
+   
     const [post, setPost] = useState([]);
   
-    // server error
+   
     const [serverError, setServerError] = useState("");
   
-    // managing state for our form inputs
+   
     const [formState, setFormState] = useState(initialFormState);
   
-    // control whether or not the form can be submitted if there are errors in form validation
+    
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   
-    // managing state for errors. empty unless inline validation (validateInput) updates key/value pair to have error
+    
     const [errors, setErrors] = useState(initialFormState);
   
-    // schema used for all validation to determine whether the input is valid or not
+    
     const formSchema = yup.object().shape({
       name: yup.string().required("Name is a required field"),
       email: yup
@@ -40,23 +40,23 @@ export default function Form() {
       password: yup.string().required("must say why")
     });
   
-    // inline validation, validating one key/value pair
+  
     const validateChange = e => {
       yup
-        .reach(formSchema, e.target.name) // get the value out of schema at key "e.target.name" --> "name="
-        .validate(e.target.value) // value in input
+        .reach(formSchema, e.target.name) 
+        .validate(e.target.value) 
         .then(valid => {
-          // if passing validation, clear any error
+     
           setErrors({ ...errors, [e.target.name]: "" });
         })
         .catch(err => {
-          // if failing validation, set error in state
+          
           console.log("error!", err);
           setErrors({ ...errors, [e.target.name]: err.errors[0] });
         });
     };
   
-    // whenever state updates, validate the entire form. if valid, then change button to be enabled.
+   
     useEffect(() => {
       formSchema.isValid(formState).then(valid => {
         console.log("valid?", valid);
@@ -64,18 +64,18 @@ export default function Form() {
       });
     }, [formState]);
   
-    // onSubmit function
+    
     const formSubmit = e => {
       e.preventDefault();
   
-      // send out POST request with obj as second param, for us that is formState.
+      
       axios
         .post("h", formState)
         .then(response => {
-          // update temp state with value to display
+        
           setPost(response.data);
   
-          // clear state, could also use 'initialState' here
+          
           setFormState({
             name: "",
             email: "",
@@ -84,25 +84,25 @@ export default function Form() {
             terms: ""
           });
   
-          // clear any server error
+          
           setServerError(null);
         })
         .catch(err => {
-          // this is where we could create a server error in the form!
+          
           setServerError("oops! something happened!");
         });
     };
   
-    // onChange function
+    
     const inputChange = e => {
-      e.persist(); // necessary because we're passing the event asyncronously and we need it to exist even after this function completes (which will complete before validateChange finishes)
+      e.persist(); 
       const newFormData = {
         ...formState,
         [e.target.name]:
           e.target.type === "checkbox" ? e.target.checked : e.target.value
-      }; // remember value of the checkbox is in "checked" and all else is "value"
-      validateChange(e); // for each change in input, do inline validation
-      setFormState(newFormData); // update state with new data
+      }; 
+      validateChange(e); 
+      setFormState(newFormData);
     };
   
     return (
@@ -154,6 +154,28 @@ export default function Form() {
             <p className="error">{errors.positions}</p>
           ) : null}
         </label>
+<br></br>
+<label> Choice of sauce? -Required-
+   <br></br>
+        <label class="container">Original Red
+            <input type="checkbox" checked="checked"/>
+             <span class="checkmark"></span>
+             </label>
+            <br/>
+        <label class="container">Garlic Ranch
+            <input type="checkbox"/>
+            <span class="checkmark"></span>
+          </label>
+          <br></br>
+        <label class="container">Spinach Alfredo
+            <input type="checkbox"/>
+            <span class="checkmark"></span>
+          </label>
+
+          {errors.positions.length > 0 ? (
+            <p className="error">{errors.positions}</p>
+          ) : null}
+</label>
 
 <br></br>
         <label class="switch">Gluten Free Crust (+$1.00)
@@ -254,6 +276,11 @@ export default function Form() {
     <input type="checkbox"/>
     <span class="checkmark"></span>
     </label>
+
+    {errors.positions.length > 0 ? (
+            <p className="error">{errors.positions}</p>
+          ) : null}
+
     </label>
 
         <pre>{JSON.stringify(post, null, 2)}</pre>
