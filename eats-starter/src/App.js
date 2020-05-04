@@ -10,10 +10,7 @@ function App() {
     <div className="App">
       <h1>Lambda's Pizzeria</h1> 
       <h2>Build Your Own Pizza!!</h2>
-     
-     <nav>
-       <div className="home-link"></div>
-       </nav> 
+      
       <Form />
   
     </div>
