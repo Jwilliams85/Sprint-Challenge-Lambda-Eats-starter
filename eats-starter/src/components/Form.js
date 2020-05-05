@@ -114,7 +114,8 @@ export default function Form() {
     return (
  <div>
    
-   <Link to="/">Home<br></br></Link>
+   <Link to="/Home">Home<br></br></Link>
+  
    <br></br>
       <form onSubmit={formSubmit}>
         {serverError ? <p className="error">{serverError}</p> : null}
@@ -201,7 +202,7 @@ export default function Form() {
             <input type="checkbox" checked="checked"/>
              <span class="checkmark"></span>
              </label>
-            <br/>
+            
         <label class="container">Sausage
             <input type="checkbox"/>
             <span class="checkmark"></span>
@@ -211,7 +212,7 @@ export default function Form() {
         <input type="checkbox"/>
         <span class="checkmark"></span>
     </label>
-
+<br></br>
     <label class="container">Grilled Chicken
     <input type="checkbox"/>
     <span class="checkmark"></span>
@@ -226,7 +227,7 @@ export default function Form() {
     <input type="checkbox"/>
     <span class="checkmark"></span>
     </label>
-
+<br></br>
     <label class="container">Green Pepper
     <input type="checkbox"/>
     <span class="checkmark"></span>
@@ -241,7 +242,7 @@ export default function Form() {
     <input type="checkbox"/>
     <span class="checkmark"></span>
     </label>
-
+<br></br>
     <label class="container">Roasted Garlic
     <input type="checkbox"/>
     <span class="checkmark"></span>
@@ -256,6 +257,8 @@ export default function Form() {
     <input type="checkbox"/>
     <span class="checkmark"></span>
     </label>
+
+    <br></br>
 
     <label class="container">Pineapple
     <input type="checkbox"/>
@@ -272,20 +275,8 @@ export default function Form() {
     <span class="checkmark"></span>
     </label>
 
-    <label class="container">Grilled Chicken
-    <input type="checkbox"/>
-    <span class="checkmark"></span>
-    </label>
+    
 
-    <label class="container">Grilled Chicken
-    <input type="checkbox"/>
-    <span class="checkmark"></span>
-    </label>
-
-    <label class="container">Grilled Chicken
-    <input type="checkbox"/>
-    <span class="checkmark"></span>
-    </label>
 
     {errors.positions.length > 0 ? (
             <p className="error">{errors.positions}</p>
