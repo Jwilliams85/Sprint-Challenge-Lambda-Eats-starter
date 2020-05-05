@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup"; 
 import axios from "axios";
 import styled from 'styled-components';
-import { Route, Link, Switch } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
 import Home from './Home';
+
 
 export default function Form() {
     
@@ -111,6 +112,10 @@ export default function Form() {
     };
   
     return (
+ <div>
+   
+   <Link to="/">Home<br></br></Link>
+   <br></br>
       <form onSubmit={formSubmit}>
         {serverError ? <p className="error">{serverError}</p> : null}
         <label htmlFor="name">
@@ -299,22 +304,20 @@ export default function Form() {
             value={formState.password}
             data-cy="password"
           />
+          <br></br>
           {errors.password.length > 0 ? (
             <p className="error">{errors.password}</p>
           ) : null}
         </label>
 <br></br>
         <button disabled={isButtonDisabled} type="submit">
+          <br></br>
          Add to  Order
-        </button>
-        <button  
-        type="submit">
-         Home 
         </button>
 
       </form>
-
     
+      </div>  
     );
   }
   
