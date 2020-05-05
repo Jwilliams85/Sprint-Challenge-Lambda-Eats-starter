@@ -10,14 +10,12 @@ function App() {
   return (
     <div className="App">
       <h1>Lambda's Pizzeria</h1> 
-      <h2>Build Your Own Pizza!!</h2>
-      
-      <Form />
-      <div>
-   
-   
+     <div> 
+  
+    <Route path='/' component={Form}></Route>
+      </div>
    <Route path="/" component={Home}/>
-   </div>
+  
 
     </div>
   );
