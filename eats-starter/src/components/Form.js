@@ -291,7 +291,7 @@ export default function Form() {
             onChange={inputChange}
             placeholder='Anything else?'
             value={formState.password}
-            data-cy="password"
+            data-cy="special_instructions"
           />
           <br></br>
           {errors.password.length > 0 ? (

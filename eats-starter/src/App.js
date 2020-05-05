@@ -14,7 +14,7 @@ function App() {
   
     <Route path='/' component={Form}></Route>
       </div>
-   <Route path="/" component={Home}/>
+   <Route path="/pizza" component={Home}/>
   
 
     </div>
