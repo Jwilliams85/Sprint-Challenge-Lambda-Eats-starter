@@ -12,7 +12,9 @@ const Home = () => {
       <img
         className="home-image" src={pizzaImg} alt ="homepage_image" />
     <Link to ="/pizza">
+      <br></br>
         <button>
+          <br></br>
             Order Your Pizza!
         </button>    
     </Link>

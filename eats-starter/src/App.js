@@ -13,7 +13,12 @@ function App() {
       <h2>Build Your Own Pizza!!</h2>
       
       <Form />
-  
+      <div>
+   
+   
+   <Route path="/" component={Home}/>
+   </div>
+
     </div>
   );
 }

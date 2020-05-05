@@ -113,9 +113,7 @@ export default function Form() {
   
     return (
  <div>
-   
-   <Link to="/Home">Home<br></br></Link>
-  
+   <Link to="/">Home<br></br></Link>
    <br></br>
       <form onSubmit={formSubmit}>
         {serverError ? <p className="error">{serverError}</p> : null}
