@@ -14,9 +14,10 @@ export default function Form() {
     const initialFormState = {
       name: "",
       email: "",
-     password: "",
-      positions: "",
-      terms: ""
+      instructions: "",
+      size:"",
+      Sause:"",
+      options:""
     };
   
    
@@ -37,13 +38,9 @@ export default function Form() {
     
     const formSchema = yup.object().shape({
       name: yup.string().required("Name is a required field"),
-      email: yup
-        .string()
-        .email("must be a valid email address")
-        .required(),
-      terms: yup.boolean().oneOf([true], "please agree with us"),
-      positions: yup.string().required("Must choose a position"),
-      password: yup.string().required("must say why")
+      email: yup.string().email("must be a valid email address").required(),
+      options: yup.boolean().oneOf([true], "Please choose something..."),
+      instructions: yup.string().required("must state something")
     });
   
   
@@ -85,9 +82,10 @@ export default function Form() {
           setFormState({
             name: "",
             email: "",
-            password: "",
-            positions: "",
-            terms: ""
+            instructions: "",
+            size:"",
+            Sause:"",
+            options:""
           });
   
           
@@ -95,7 +93,7 @@ export default function Form() {
         })
         .catch(err => {
           
-          setServerError("oops! something happened!");
+          setServerError("Oh No! Something wasn't right!");
         });
     };
   
@@ -159,13 +157,19 @@ export default function Form() {
   
             <option value="Extra Large">Extra Large</option>
           </select>
-          {errors.positions.length > 0 ? (
-            <p className="error">{errors.positions}</p>
+          {errors.size.length > 0 ? (
+            <p className="error">{errors.size}</p>
           ) : null}
         </label>
 <br></br>
-<label> Choice of sauce? -Required-
+<label htmlFor="options" className="options"> Choice of sauce? -Required-
    <br></br>
+        <input
+          type="checkbox"
+          name="options"
+          checked={formState.terms}
+          onChange={inputChange}
+        />
         <label class="container">Original Red
             <input type="checkbox" checked="checked"/>
              <span class="checkmark"></span>
@@ -181,9 +185,6 @@ export default function Form() {
             <span class="checkmark"></span>
           </label>
 
-          {errors.positions.length > 0 ? (
-            <p className="error">{errors.positions}</p>
-          ) : null}
 </label>
 
 <br></br>
@@ -194,8 +195,15 @@ export default function Form() {
 
         <br></br>
 
- <label> What Would you like on your order? -Required-
+ <label htmlFor="options" className="options"> What Would you like on your order? -Required-
    <br></br>
+
+   <input
+          type="checkbox"
+          name="options"
+          checked={formState.terms}
+          onChange={inputChange}
+        />
         <label class="container">Pepperoni
             <input type="checkbox" checked="checked"/>
              <span class="checkmark"></span>
@@ -275,11 +283,6 @@ export default function Form() {
 
     
 
-
-    {errors.positions.length > 0 ? (
-            <p className="error">{errors.positions}</p>
-          ) : null}
-
     </label>
 
         <pre>{JSON.stringify(post, null, 2)}</pre>
@@ -290,12 +293,12 @@ export default function Form() {
             name="special_instructions"
             onChange={inputChange}
             placeholder='Anything else?'
-            value={formState.password}
+            value={formState.instructions}
             data-cy="special_instructions"
           />
           <br></br>
-          {errors.password.length > 0 ? (
-            <p className="error">{errors.password}</p>
+          {errors.instructions.length > 0 ? (
+            <p className="error">{errors.instructions}</p>
           ) : null}
         </label>
 <br></br>
