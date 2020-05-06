@@ -9,12 +9,12 @@ import {BrowserRouter} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      <h1>Lambda's Pizzeria</h1> 
+    <h1>Lambda's Pizzeria</h1> 
      <div> 
      
-    <Route exact path='/' component={Form}></Route>
+    <Route exact path='/pizza' component={Form}></Route>
       
-   <Route exact path="/pizza" component={Home}/>
+   <Route exact path="/" component={Home}/>
    <div>
       <Link to ={'/pizza'}>Order Your Pizza!</Link>
     </div>

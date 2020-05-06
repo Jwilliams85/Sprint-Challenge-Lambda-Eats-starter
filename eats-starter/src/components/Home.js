@@ -8,7 +8,7 @@ const Home = () => {
  
   return (
     <div className="home-wrapper">
-        <h1 className="title">Lambda's Pizzeria</h1>
+        <h1 className="title">Pizza?</h1>
       <img
         className="home-image" src={pizzaImg} alt ="homepage_image" />
    <div>
