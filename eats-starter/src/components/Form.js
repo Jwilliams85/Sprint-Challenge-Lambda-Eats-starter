@@ -111,7 +111,7 @@ export default function Form() {
   
     return (
  <div>
-   <Link to="/">Home<br></br></Link>
+   <Link to="/" src= "localhost:3000/pizza">Home<br></br></Link>
    <br></br>
       <form onSubmit={formSubmit}>
         {serverError ? <p className="error">{serverError}</p> : null}
@@ -302,10 +302,10 @@ export default function Form() {
           ) : null}
         </label>
 <br></br>
-        <button disabled={isButtonDisabled} type="submit">
+        {/* <button disabled={isButtonDisabled} type="submit">
           <br></br>
          Add to  Order
-        </button>
+        </button> */}
 
       </form>
     

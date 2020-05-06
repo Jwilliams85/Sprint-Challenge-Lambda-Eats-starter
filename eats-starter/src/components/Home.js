@@ -11,13 +11,19 @@ const Home = () => {
         <h1 className="title">Lambda's Pizzeria</h1>
       <img
         className="home-image" src={pizzaImg} alt ="homepage_image" />
-    <Link to ="/pizza">
+   <div>
+    <Link to ={'/'}>Home  </Link>
       <br></br>
-        <button>
+        {/* <button>
           <br></br>
             Order Your Pizza!
-        </button>    
-    </Link>
+        </button>     */}
+    </div>
+    {/* <div>
+      <Link to ={'/pizza'}>Order Your Pizza!</Link>
+    </div> */}
+    {/* <Link to= '/pizza'>Pizza</Link> */}
+
     </div>
   );
 }

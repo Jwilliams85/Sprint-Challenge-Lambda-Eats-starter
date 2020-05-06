@@ -11,12 +11,20 @@ function App() {
     <div className="App">
       <h1>Lambda's Pizzeria</h1> 
      <div> 
-  
-    <Route path='/' component={Form}></Route>
-      </div>
-   <Route path="/pizza" component={Home}/>
-  
-
+     
+    <Route exact path='/' component={Form}></Route>
+      
+   <Route exact path="/pizza" component={Home}/>
+   <div>
+      <Link to ={'/pizza'}>Order Your Pizza!</Link>
+    </div>
+   {/* <Link >
+        <button>
+          <br></br>
+            Order Your Pizza!
+        </button>    
+    </Link> */}
+   </div>
     </div>
   );
 }
