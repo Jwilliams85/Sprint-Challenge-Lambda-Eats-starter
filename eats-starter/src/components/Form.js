@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup"; 
 import axios from "axios";
 import styled from 'styled-components';
-import { Link, Switch, Route } from "react-router-dom";
+import { Link, useHistory, Switch, Route } from "react-router-dom";
 import Home from './Home';
 
 
@@ -109,9 +109,11 @@ export default function Form() {
       setFormState(newFormData);
     };
   
+    // const { push, goBack } = useHistory();
+
     return (
  <div>
-   <Link to="/" src= "localhost:3000/pizza">Home<br></br></Link>
+  <Link to="/" src= "localhost:3000/pizza">Home<br></br></Link>
    <br></br>
       <form onSubmit={formSubmit}>
         {serverError ? <p className="error">{serverError}</p> : null}
@@ -302,11 +304,14 @@ export default function Form() {
           ) : null}
         </label>
 <br></br>
-        {/* <button disabled={isButtonDisabled} type="submit">
+      
+      {/* <button onClick={() => goBack()}>Add to Order</button> */}
+   
+         <button disabled={isButtonDisabled} type="submit">
           <br></br>
          Add to  Order
-        </button> */}
-
+        </button> 
+       
       </form>
     
       </div>  
