@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import pizzaImg from '../img/Pizza.gif'
-//import HomeStyle from './components/HomeStyle'
+// import HomeStyle from './HomeStyle'
+// import styled from 'styled-components'
+
+// const title= styled.div`
+// color="red"`;
 
 const Home = () => {
   

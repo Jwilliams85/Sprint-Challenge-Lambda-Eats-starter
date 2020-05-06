@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup"; 
 import axios from "axios";
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import { Link, useHistory, Switch, Route } from "react-router-dom";
 import Home from './Home';
+import Style from './Style.css'
+
 
 
 export default function Form() {
     
-     
-
 
     const initialFormState = {
       name: "",
@@ -113,7 +113,7 @@ export default function Form() {
 
     return (
  <div>
-  <Link to="/" src= "localhost:3000/pizza">Home<br></br></Link>
+  <Link to="/" className= "home" src= "localhost:3000/pizza">Home<br></br></Link>
    <br></br>
       <form onSubmit={formSubmit}>
         {serverError ? <p className="error">{serverError}</p> : null}
@@ -190,9 +190,9 @@ export default function Form() {
 </label>
 
 <br></br>
-        <label class="switch">Gluten Free Crust (+$1.00)
+        <label className="switch">Gluten Free Crust (+$1.00)
             <input type="checkbox"/>
-            <span class="slider"></span>
+            <span className="slider"></span>
             </label>
 
         <br></br>
