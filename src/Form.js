@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Card, CardImg, Form, FormGroup, Input, Dropdown, DropdownToggle, DropdownMenu, Label, Button} from 'reactstrap'
+import { Card, CardImg, Form, FormGroup, Input, Dropdown, DropdownToggle, DropdownMenu, Label, Button, CustomInput} from 'reactstrap'
 import axios from 'axios'
 import * as yup from 'yup'
 
@@ -73,32 +73,32 @@ const OrderForm = () => {
                         <div onClick = {() => {
                             toggle();
                             setFormData({...formData, number: 0})
-                        }}>0</div>
+                        }}>Extra-Small</div>
                         <div onClick = {() => {
                             toggle();
                             setFormData({...formData, number: 1})
-                        }}>1</div>
+                        }}>Small</div>
                         <div onClick = {() => {
                             toggle();
                             setFormData({...formData, number: 2})
-                        }}>2</div>
+                        }}>Medium</div>
                         <div onClick = {() => {
                             toggle();
                             setFormData({...formData, number: 3})
-                        }}>3</div>
+                        }}>Large</div>
                         <div onClick = {() => {
                             toggle();
                             setFormData({...formData, number: 4})
-                        }}>4</div>
+                        }}>Extra-Large</div>
                         <div onClick = {() => {
                             toggle();
                             setFormData({...formData, number: 5})
-                        }}>5</div>
+                        }}>Super</div>
                     </DropdownMenu>
                 </Dropdown>
             </FormGroup>
             <FormGroup tag = 'fieldset'>
-                <legend>Sauce</legend>
+                <legend>Choice of Sauce</legend>
                 <FormGroup check>
                     <Label check>
                         <Input type = 'radio' name = 'sauce' value = 'red' onChange = {handleChange}/>
@@ -136,7 +136,7 @@ const OrderForm = () => {
 
             </FormGroup>
             <FormGroup tag = 'fieldset'>
-                <legend>Toppings</legend>
+                <legend>Add Toppings</legend>
                 <FormGroup check>
                     <Label check>
                         <Input type = 'checkbox' name= 'chicken' data-cy ='checkbox1' checked = {formData.chicken}  onChange = {handleToppings}/>
@@ -188,10 +188,17 @@ const OrderForm = () => {
             </FormGroup>
 
             <FormGroup>
+        <Label for="exampleCheckbox">Switches</Label>
+        <div>
+          <CustomInput type="switch" id="exampleCustomSwitch" name="customSwitch" label="Gluten Free Crust (+$1.00)" />
+        </div>
+      </FormGroup>
+
+            <FormGroup>
                 <legend> Special Instruction </legend>
                 <Input type = 'textarea' name = 'special' value = {formData.special} onChange ={handleChange}/>
             </FormGroup>
-            <Button>Submit </Button>    
+            <Button>Add To Order</Button>    
 
         </Form>
         </>
