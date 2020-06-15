@@ -7,7 +7,7 @@ const OrderForm = () => {
     const [dropdownOpen, setdropdownOpen] = useState (false)
     const [formData, setFormData] = useState ({
         name: "",
-        number: 0,
+        value: "",
         sauce: "",
         chicken: false,
         peperoni: false,
@@ -21,7 +21,7 @@ const OrderForm = () => {
     })
 
     const schema = yup.object().shape({
-        name: yup.string().required().min(2),
+        name: yup.string().required("Name is a required field").min(2),
         number: yup.number().required().positive().integer().min(1),
         sauce: yup.string().required(),
         special: yup.string(),
@@ -49,7 +49,7 @@ const OrderForm = () => {
 
     return (
         <>
-        <Card color='info'>
+        <Card color='warning'>
             <h2 style = {{color: 'white', margin: '0 auto'}}>
                 Build Your Own Pizza!
             </h2>
@@ -67,32 +67,33 @@ const OrderForm = () => {
             <FormGroup>
                 <Dropdown isOpen = {dropdownOpen} toggle = {toggle}>
                     <DropdownToggle caret>
-                        {formData.number === 0 ? 'Size' : formData.number}
+                        {formData.value === '' ? 'Size' : formData.value}
+
                     </DropdownToggle>
                     <DropdownMenu>
                         <div onClick = {() => {
                             toggle();
-                            setFormData({...formData, number: 0})
+                            setFormData({...formData, value: "Extra-Small" })
                         }}>Extra-Small</div>
                         <div onClick = {() => {
                             toggle();
-                            setFormData({...formData, number: 1})
+                            setFormData({...formData, value: "Small"})
                         }}>Small</div>
                         <div onClick = {() => {
                             toggle();
-                            setFormData({...formData, number: 2})
+                            setFormData({...formData, value: "Medium"})
                         }}>Medium</div>
                         <div onClick = {() => {
                             toggle();
-                            setFormData({...formData, number: 3})
+                            setFormData({...formData, value: "Large"})
                         }}>Large</div>
                         <div onClick = {() => {
                             toggle();
-                            setFormData({...formData, number: 4})
+                            setFormData({...formData, value: "Extra-Large"})
                         }}>Extra-Large</div>
                         <div onClick = {() => {
                             toggle();
-                            setFormData({...formData, number: 5})
+                            setFormData({...formData, value: "Super"})
                         }}>Super</div>
                     </DropdownMenu>
                 </Dropdown>

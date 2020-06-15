@@ -5,10 +5,10 @@ import OrderForm from './Form'
 const App = () => {
   return (
     <>
-    <Navbar color='info'>
+    <Navbar color='danger'>
     <h1 style= {{ color: 'white'}}>Lambda Eats</h1>
     <Link to= {'/'}>
-    <Button color ='info'>
+    <Button color ='success'>
       Home
     </Button>
     </Link>
@@ -17,7 +17,7 @@ const App = () => {
     <Card>
       <CardImg src={require ('./Assets/Pizza.jpg')}/>
       <Link to = '/pizza'>
-      <Button color= 'info' style = {{position: 'absolute', left:'50%', top: '50%'}}>Pizza?
+      <Button color= 'success' style = {{position: 'absolute', left:'50%', top: '50%'}}>Pizza?
     </Button>
     </Link>
     </Card>
