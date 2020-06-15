@@ -22,4 +22,9 @@ describe('Testing our forom inputs', function(){
     it('tests form submit', function() {
         cy.get('[data-cy=submit]').submit()
     })
+
+    it('tests email input', function() {
+        cy.get('[data-cy=email]').type("Testing Email Out")
+    });
+    
 });

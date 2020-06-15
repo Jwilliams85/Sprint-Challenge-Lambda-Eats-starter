@@ -7,6 +7,7 @@ const OrderForm = () => {
     const [dropdownOpen, setdropdownOpen] = useState (false)
     const [formData, setFormData] = useState ({
         name: "",
+        email: "",
         value: "",
         sauce: "",
         chicken: false,
@@ -64,6 +65,11 @@ const OrderForm = () => {
                 <legend>Name</legend>
                 <Input type = 'name' name= 'name' data-cy='name' value = {formData.name} onChange= {handleChange}/>
             </FormGroup>
+            <FormGroup>
+                <legend>Email</legend>
+                <Input type = 'email' name= 'email' data-cy='email' value = {formData.email} onChange= {handleChange}/>
+            </FormGroup>
+
             <FormGroup>
                 <Dropdown isOpen = {dropdownOpen} toggle = {toggle}>
                     <DropdownToggle caret>
