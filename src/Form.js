@@ -23,7 +23,8 @@ const OrderForm = () => {
 
     const schema = yup.object().shape({
         name: yup.string().required("Name is a required field").min(2),
-        number: yup.number().required().positive().integer().min(1),
+        email: yup.string().required().min(1),
+        value: yup.string().required(),
         sauce: yup.string().required(),
         special: yup.string(),
         chicken: yup.boolean(),
